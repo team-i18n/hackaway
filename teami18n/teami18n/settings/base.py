@@ -2,16 +2,8 @@
 
 
 from os.path import abspath, basename, dirname, join, normpath
-from os import environ
 from sys import path
-import urlparse
 
-import djcelery
-
-redis_url = urlparse.urlparse(environ.get('REDISCLOUD_URL',
-                                          'redis://localhost:6379/0'))
-
-import djcelery
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -62,32 +54,6 @@ DATABASES = {
     }
 }
 ########## END DATABASE CONFIGURATION
-
-
-########## CACHE CONFIGURATION
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
-        'OPTIONS': {
-            'DB': 0,
-            'PASSWORD': redis_url.password,
-        }
-    }
-}
-########## END CACHE CONFIGURATION
-
-
-########## CELERY SETTINGS
-djcelery.setup_loader()
-
-BROKER_URL = redis_url.geturl()
-BROKER_BACKEND = "redis"
-REDIS_CONNECT_RETRY = True
-CELERY_RESULT_BACKEND = BROKER_URL
-CELERY_REDIS_MAX_CONNECTIONS = 256
-########## END CELERY SETTINGS
-
 
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
@@ -220,7 +186,6 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
-    'djcelery',
     'gunicorn',
 )
 
@@ -274,8 +239,3 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'wsgi.application'
 ########## END WSGI CONFIGURATION
-
-########## CELERY CONFIGURATION
-# See: http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html
-djcelery.setup_loader()
-########## END CELERY CONFIGURATION
