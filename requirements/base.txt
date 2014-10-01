@@ -6,3 +6,6 @@ logutils==0.3.3
 South==0.7.6
 psycopg2==2.4.5
 newrelic==2.32.0.28
+requests==2.4.1
+nltk==3.0.0
+beautifulsoup4==4.3.2
