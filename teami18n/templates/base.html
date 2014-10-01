@@ -2,26 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}teami18n{% endblock title %}</title>
+    <title>Hackaway 2014</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- This file store project specific CSS -->
     <link href="{{ STATIC_URL }}css/project.css" rel="stylesheet">
-
-    <!-- Use this to quickly test CSS changes in a template, 
-        then move to project.css -->
-    {% block extra_css %}{% endblock extra_css %}
   </head>
 
   <body>
-      {% block content %}
-        <p>This is your new omakase project. To make your first app type:</p>
-        <pre>python manage.py startapp chocolate_taster</pre>
-      {% endblock content %}
+
+    <p>Heidi you can write normal html in this template. But also more django template stuff.</p>
+
 
     <!-- place project specific Javascript in this file -->
     <script src="{{ STATIC_URL }}js/project.js"></script>
-
-    {% block extra_js %}{% endblock extra_js %}
   </body>
 </html>
