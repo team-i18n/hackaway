@@ -2,48 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hackaway 2014: YES</title>
+    <title>Hackaway 2014</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- This file store project specific CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="{{ STATIC_URL }}css/project.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-jvectormap-1.2.2.css" type="text/css" media="screen"/>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    {% comment %}
+        Examples and document for jvector maps
+        http://jvectormap.com/examples/world-gdp/
+
+        There is also a map of sweden: http://jvectormap.com/maps/countries/sweden/
+    {% endcomment %}
+    <script src="{{ STATIC_URL }}js/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="http://jvectormap.com/js/jquery-jvectormap-world-mill-en.js"></script>
   </head>
 
   <body>
 
-    <p><h1>Heidi you can write normal html in this template. But also more django template stuff.</h1></p>
+    <div id="world-map" style="width: 1200px; height: 800px"></div>
 
-    <div class="row">
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-</div>
-<div class="row">
-  <div class="col-md-8">.col-md-8</div>
-  <div class="col-md-4">.col-md-4</div>
-</div>
-<div class="row">
-  <div class="col-md-4">.col-md-4</div>
-  <div class="col-md-4">.col-md-4</div>
-  <div class="col-md-4">.col-md-4</div>
-</div>
-<div class="row">
-  <div class="col-md-6">.col-md-6</div>
-  <div class="col-md-6">.col-md-6</div>
-</div>
+    <script>
+        $(function(){
+            $('#world-map').vectorMap();
+        });
+    </script>
 
-
-    <!-- place project specific Javascript in this file -->
-    <script src="{{ STATIC_URL }}js/project.js"></script>
   </body>
 </html>
