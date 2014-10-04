@@ -40,12 +40,8 @@ h5 {
 	line-height: 1.2;
 	}
 
-.all{
-	width: 100%;
-	border: 1px solid black;
-	outline: 4px solid white;
-	box-shadow: 0 0 0 8px black;
-        margin: 3px;
+
+body {
         background: #ccffff;
 }
 

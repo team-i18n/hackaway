@@ -16,54 +16,53 @@
 </head>
 
 <body>
-<div class="all">
+<div>
     <div class="logo">
+        <h2>NEWS PER CAPITA</h2>
+        <h5>
+            Built at
+            <a href="www.hackaway.com">
+                Hackaway
+            </a>
+            2014 with
+            <a href="www.sr.se">
+                SR
+            </a>
+            by team i18n
+        </h5>
+    </div>
+
         <div>
-            <h2>NEWS PER CAPITA</h2>
-        </div>
-        <div>
-            <h5>
-                Built at
-                <a href="www.hackaway.com">
-                    Hackaway
-                </a>
-                2014 with
-                <a href="www.sr.se">
-                    SR
-                </a>
-                by team i18n
-            </h5>
+            <div id="world-map" style="width: 1000px; height: 500px"></div>
 
-            <div>
-                <div id="world-map" style="width: 1000px; height: 500px"></div>
+            <div class="click">
+                <div class="countryname">
+                    <h2>Sweden</h2>
+                </div>
 
-                <div class="click">
-                    <div class="countryname">
-                        <h2>Sweden</h2>
-                    </div>
+                <div>
+                    <h5>
+                        Population: 9,000 000
+                        <br>
+                        Total pods: 45
+                    </h5>
+                </div>
 
-                    <div>
-                        <h5>
-                            Population: 9,000 000
-                            <br>
-                            Total pods: 45
-                        </h5>
-                    </div>
-
-                    <div class="article">
-                        <h4>News-title goes here even if its very long indeed</h4>
-                        <h5>
-                            <span>
-                                Date: 1/8 xyz
-                            </span>
-                            <br>
-                            Article text, short desc. Lorem ipsum dolor sit amet.
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </h5>
-                    </div>
+                <div class="article">
+                    <h4>News-title goes here even if its very long indeed</h4>
+                    <h5>
+                        <span>
+                            Date: 1/8 xyz
+                        </span>
+                        <br>
+                        Article text, short desc. Lorem ipsum dolor sit amet.
+                        Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </h5>
                 </div>
             </div>
+        </div>
 
+        </div>
         </div>
 
         <script>
@@ -91,12 +90,12 @@
                                         + podcastsData[code]
                                         + "</br> Population: "
                                         + populationData[code]);
-                            }
+                            },
                     backgroundColor: '#ccffff'
                 });
+            });
 
-            </script>
-        </div>
+        </script>
     </div>
 </div>
 </body>
