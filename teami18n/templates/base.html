@@ -49,29 +49,11 @@
             <div id="world-map" style="width: 1000px; height: 500px"></div>
 
             <div class="click">
-                <div class="countryname">
-                    <h2>Sweden</h2>
+                <div id="placeholder_display">
                 </div>
-
-                <div>
-                    <h5>
-                        Population: 9,000 000
-                        <br>
-                        Total pods: 45
-                    </h5>
-                </div>
-
-                <div class="article">
-                    <h4>News-title goes here even if its very long indeed</h4>
-                    <h5>
-                        <span>
-                            Date: 1/8 xyz
-                        </span>
-                        <br>
-                        Article text, short desc. Lorem ipsum dolor sit amet.
-                        Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </h5>
-                </div>
+                {% for country in countries %}
+                    {% include "country.html" %}
+                {% endfor %}
             </div>
         </div>
 
@@ -81,7 +63,8 @@
         <script>
             var podcastsPerCapitaData = {{ podcasts_per_captia_data|safe }},
                     populationData = {{ population_data|safe }},
-                    podcastsData = {{ podcasts_data|safe }};
+                    podcastsData = {{ podcasts_data|safe }},
+                    current_country = $("#placeholder_display");
 
             $(function(){
                 $('#world-map').vectorMap({
@@ -94,7 +77,9 @@
                         }]
                     },
                     onRegionClick: function(event, code){
-                        $("#click").show();
+                        current_country.hide();
+                        current_country = $("#" + code + "_display");
+                        current_country.show();
                     },
                     onRegionLabelShow: function(event, label, code) {
                         label.html(

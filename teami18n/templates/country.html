@@ -1,0 +1,21 @@
+<div style="display:none" id="{{ country.code }}_display">
+    <div class="countryname">
+        <h2>{{ country.get_code_display }}</h2>
+    </div>
+
+    <div>
+        <h5>
+            Population: {{ country.population }}
+            <br>
+            Total Podcasts: {{ country.podcasts_count }}
+        </h5>
+    </div>
+
+    <div class="article">
+        {% comment %}
+            {% for podcast in country.lastest_podcasts %}
+                {% include "podcast.html" %}
+            {% endfor %}
+        {% endcomment %}
+    </div>
+</div>
