@@ -46,6 +46,7 @@ h5 {
 	outline: 4px solid white;
 	box-shadow: 0 0 0 8px black;
         margin: 3px;
+        background: #ccffff;
 }
 
 
@@ -60,6 +61,7 @@ h5 {
 	outline: 4px solid white;
 	box-shadow: 0 0 0 8px black;
 	margin-top: 40px;
+        margin-bottom: 10px;
 }
 
 
@@ -95,6 +97,8 @@ h5 {
 	outline: 4px solid white;
 	box-shadow: 0 0 0 8px black;
 	padding: 5px 15px 5px 15px;
+        margin-left: 20px;
+        margin-bottom: 20px;
 	}
 
 .countryname{
@@ -104,4 +108,8 @@ h5 {
 .article{
 	text-align: left;
 
+}
+
+#world-map {
+    display: inline-block;
 }
