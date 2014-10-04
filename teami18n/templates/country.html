@@ -6,14 +6,13 @@
     <div>
         <h5>
             Population: {{ country.population }}
-            <br>
+        </h5>
+        <h5>
             Total Podcasts: {{ country.podcasts_count }}
         </h5>
     </div>
 
-    <div class="article">
-        {% for podcast in country.lastest_podcasts %}
-            {% include "podcast.html" %}
-        {% endfor %}
-    </div>
+    {% for podcast in country.lastest_podcasts %}
+        {% include "podcast.html" %}
+    {% endfor %}
 </div>
