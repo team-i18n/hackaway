@@ -17,7 +17,7 @@ class Country(models.Model):
     def podcasts_per_captia(self):
         return self.podcasts_count() / float(self.population)
 
-    def lastest_stories(self):
+    def lastest_podcasts(self):
         return self.podcasts.order_by("-show_date")[:3]
 
 

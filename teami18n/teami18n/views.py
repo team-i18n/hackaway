@@ -23,5 +23,5 @@ class HomeView(TemplateView):
             podcasts_per_captia_data)
         context["podcasts_data"] = json.dumps(podcasts_data)
         context["population_data"] = json.dumps(population_data)
-
+        context["countries"] = countries
         return context
