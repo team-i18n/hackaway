@@ -13,7 +13,15 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         countries = Country.objects.filter(population__isnull=False)
-        country_list = {c.code: c.podcasts_per_captia() for c in countries}
-        context["population_data"] = json.dumps(country_list)
-        context["countries"] = countries
+
+        podcasts_per_captia_data = {
+            c.code: c.podcasts_per_captia() for c in countries}
+        podcasts_data = {c.code: c.podcasts_count() for c in countries}
+        population_data = {c.code: c.population for c in countries}
+
+        context["podcasts_per_captia_data"] = json.dumps(
+            podcasts_per_captia_data)
+        context["podcasts_data"] = json.dumps(podcasts_data)
+        context["population_data"] = json.dumps(population_data)
+
         return context

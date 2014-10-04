@@ -11,9 +11,11 @@ class Country(models.Model):
     def __unicode__(self):
         return self.code
 
+    def podcasts_count(self):
+        return self.podcasts.all().count()
+
     def podcasts_per_captia(self):
-        podcasts = self.podcasts.filter().count()
-        return float(podcasts) / float(self.population)
+        return self.podcasts_count() / float(self.population)
 
     def lastest_stories(self):
         return self.podcasts.order_by("-show_date")[:3]
