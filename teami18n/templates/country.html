@@ -12,10 +12,8 @@
     </div>
 
     <div class="article">
-        {% comment %}
-            {% for podcast in country.lastest_podcasts %}
-                {% include "podcast.html" %}
-            {% endfor %}
-        {% endcomment %}
+        {% for podcast in country.lastest_podcasts %}
+            {% include "podcast.html" %}
+        {% endfor %}
     </div>
 </div>
