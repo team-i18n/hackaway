@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 from bs4 import BeautifulSoup
 import requests
-from django_countries.data import COUNTRIES, COMMON_NAMES
+from django_countries.data import COUNTRIES
 
 from teami18n.models import Country, Podcast
 
@@ -16,8 +16,7 @@ class Command(BaseCommand):
             self.populate_podcasts(country)
 
     def populate_podcasts(country):
-        country_name = COMMON_NAMES.get(country.code,
-                                        COUNTRIES[country.code])
+        country_name = unicode(COUNTRIES[country.code])
         url = ('http://api.npr.org/query?id=1001,1004'
                '&fields=title,teaser,show,image'
                '&requiredAssets=text,image,audio'
