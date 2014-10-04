@@ -18,7 +18,7 @@ class Country(models.Model):
         return self.podcasts_count() / float(self.population)
 
     def lastest_podcasts(self):
-        return self.podcasts.order_by("-show_date")[:3]
+        return self.podcasts.all()[:1]  #.order_by("-show_date")[:3]
 
 
 class Podcast(models.Model):

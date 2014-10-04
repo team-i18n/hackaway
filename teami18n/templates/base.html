@@ -36,6 +36,8 @@
             <div id="world-map" style="width: 1000px; height: 500px"></div>
 
             <div class="click">
+                <div id="placeholder_display">
+                </div>
                 {% for country in countries %}
                     {% include "country.html" %}
                 {% endfor %}
@@ -48,7 +50,8 @@
         <script>
             var podcastsPerCapitaData = {{ podcasts_per_captia_data|safe }},
                     populationData = {{ population_data|safe }},
-                    podcastsData = {{ podcasts_data|safe }};
+                    podcastsData = {{ podcasts_data|safe }},
+                    current_country = $("#placeholder_display");
 
             $(function(){
                 $('#world-map').vectorMap({
@@ -61,7 +64,9 @@
                         }]
                     },
                     onRegionClick: function(event, code){
-                        $("#" + code).show();
+                        current_country.hide();
+                        current_country = $("#" + code + "_display");
+                        current_country.show();
                     },
                     onRegionLabelShow: function(event, label, code) {
                         label.html(
