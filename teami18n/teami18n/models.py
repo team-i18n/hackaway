@@ -17,7 +17,7 @@ class Podcast(models.Model):
     link = models.URLField()
     title = models.TextField()
     teaser = models.TextField()
-    program_name = models.TextField(blank=True)
+    program_name = models.TextField(null=True, blank=True)
     show_date = models.DateTimeField(null=True, blank=True)
     image_link = models.URLField(null=True, blank=True)
 
