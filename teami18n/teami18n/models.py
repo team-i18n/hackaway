@@ -11,6 +11,11 @@ class Country(models.Model):
     def __unicode__(self):
         return self.code
 
+    def podcasts_per_captia(self):
+        if self.population:
+            podcasts = self.podcasts.all().count()
+            return podcasts / self.population
+
 
 class Podcast(models.Model):
     story_id = models.CharField(max_length=16, unique=True)
