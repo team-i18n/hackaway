@@ -1,7 +1,5 @@
 /*! project specific CSS goes here. */
 
-
-
 h1 {
 	font-family: times;
 	font-size: 64px;
@@ -36,8 +34,10 @@ h4 {
 
 h5 {
 	font-family: times;
-	color: black;
 	font-size: 12px;
+	color: black;
+	margin: 0;
+	line-height: 1.2;
 	}
 
 .all{
@@ -45,7 +45,7 @@ h5 {
 	border: 1px solid black;
 	outline: 4px solid white;
 	box-shadow: 0 0 0 8px black;
-	margin-top: 40px;
+        margin: 3px;
 }
 
 
@@ -62,12 +62,9 @@ h5 {
 	margin-top: 40px;
 }
 
-.inline{
-	display: inline-block;
-
-}
 
 .hover {
+	display: inline-block;
 	width: 150px;
 	height: 400px;
 	background-color: white;
@@ -90,6 +87,7 @@ h5 {
 
 
 .click {
+	display: inline-block;
 	width: 300px;
 	height: auto;
 	background-color: white;
@@ -105,5 +103,5 @@ h5 {
 
 .article{
 	text-align: left;
-	
+
 }

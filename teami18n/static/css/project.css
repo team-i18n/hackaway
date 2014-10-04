@@ -1,7 +1,5 @@
 /*! project specific CSS goes here. */
 
-
-
 h1 {
 	font-family: times;
 	font-size: 64px;
@@ -47,7 +45,7 @@ h5 {
 	border: 1px solid black;
 	outline: 4px solid white;
 	box-shadow: 0 0 0 8px black;
-	margin-top: 40px;
+        margin: 3px;
 }
 
 
@@ -64,10 +62,6 @@ h5 {
 	margin-top: 40px;
 }
 
-.inline{
-
-
-}
 
 .hover {
 	display: inline-block;
