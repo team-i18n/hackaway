@@ -6,15 +6,18 @@ h1 {
 	font-family: times;
 	font-size: 64px;
 	color: #424242;
-	margin-top: 10px;
+	margin-top: 30px;
 	margin-bottom: 10px;
 	}
 
 
 h2 {
 	font-family: times;
-	color: black;
 	font-size: 36px;
+	color: black;
+	margin-top: 30px;
+	margin-bottom: 10px;
+
 	}
 
 h3 {
@@ -97,9 +100,10 @@ h5 {
 	}
 
 .countryname{
-	font-style: uppercase;
+	text-transform: capitalize;
 }
 
 .article{
 	text-align: left;
+	
 }
