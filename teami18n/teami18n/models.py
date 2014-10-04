@@ -12,9 +12,8 @@ class Country(models.Model):
         return self.code
 
     def podcasts_per_captia(self):
-        if self.population:
-            podcasts = self.podcasts.all().count()
-            return podcasts / self.population
+        podcasts = self.podcasts.all().count()
+        return float(podcasts) / float(self.population)
 
 
 class Podcast(models.Model):
