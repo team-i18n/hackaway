@@ -24,8 +24,8 @@ class Command(BaseCommand):
                '&fields=title,teaser,show,image'
                '&requiredAssets=text,image,audio'
                '&dateType=story'
-               '&startDate=2014-01-01'
-               '&endDate=2014-10-04'
+               '&startDate=2013-01-01'
+               '&endDate=2013-12-31'
                '&searchTerm=' + country_name +
                '&sort=dateDesc'
                '&output=JSON'
