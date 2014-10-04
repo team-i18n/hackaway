@@ -26,9 +26,21 @@
     <div id="world-map" style="width: 1200px; height: 800px"></div>
 
     <script>
+        var populationData = {{ population_data |safe }};
+
         $(function(){
-            $('#world-map').vectorMap();
+            $('#world-map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: populationData,
+                        scale: ['#C8EEFF', '#0071A4'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                }
+            });
         });
+
     </script>
 
   </body>
