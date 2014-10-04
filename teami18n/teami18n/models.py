@@ -1,6 +1,7 @@
 from django.db import models
 
 from django_countries import countries
+import humanize
 
 
 class Country(models.Model):
@@ -11,6 +12,10 @@ class Country(models.Model):
 
     def __unicode__(self):
         return self.code
+
+    @property
+    def intword_population(self):
+        return humanize.intword(self.population)
 
     def podcasts_per_captia(self):
         return float(self.podcasts_count) / float(self.population)

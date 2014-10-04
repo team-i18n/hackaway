@@ -2,8 +2,6 @@ import json
 
 from django.views.generic import TemplateView
 
-import humanize
-
 from .models import Country
 
 # Countries Data:
@@ -19,8 +17,7 @@ class HomeView(TemplateView):
 
         podcasts_per_captia_data = {
             c.code: c.podcasts_per_captia() for c in countries}
-        population_data = {
-            c.code: humanize.intword(c.population) for c in countries}
+        population_data = {c.code: c.intword_population for c in countries}
         podcasts_data = {c.code: c.podcasts_count for c in countries}
 
         context["podcasts_per_captia_data"] = json.dumps(
