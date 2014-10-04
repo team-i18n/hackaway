@@ -7,6 +7,9 @@ class Country(models.Model):
     code = models.CharField(max_length=2, choices=tuple(countries),
                             unique=True)
 
+    def __unicode__(self):
+        return self.code
+
 
 class Podcast(models.Model):
     story_id = models.CharField(max_length=16, unique=True)
@@ -18,3 +21,6 @@ class Podcast(models.Model):
     image_link = models.URLField(null=True, blank=True)
 
     countries = models.ManyToManyField(Country, related_name="podcasts")
+
+    def __unicode__(self):
+        return self.title
