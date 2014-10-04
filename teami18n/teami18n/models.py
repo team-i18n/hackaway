@@ -4,4 +4,4 @@ from django_countries import countries
 
 
 class Country(models.Model):
-    code = models.CharField(max_length=2, choices=tuple(countries))
+    code = models.CharField(max_length=2, choices=tuple(countries), unique=True)
