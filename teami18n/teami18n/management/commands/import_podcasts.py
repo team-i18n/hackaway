@@ -27,25 +27,30 @@ class Command(BaseCommand):
                '&endDate=2014-10-04'
                '&searchTerm=' + country_name +
                '&sort=dateDesc'
-               '&output=NPRML'
-               '&numResults=10'
+               '&output=JSON'
+               '&numResults=50'
                '&apiKey=MDE2ODkwMTczMDE0MTIwNjAxNDIxMGUxMA001')
         print url
-        print
-        soup = BeautifulSoup(requests.get(url).text)
-        for story in soup.find('story'):
+        json = requests.get(url).json()
+        for story in json["list"].get("story", []):
+            show = story.get("show")
             podcast, _ = Podcast.objects.get_or_create(
                 story_id=story['id'],
-                link=story.find('link', type="html").string,
-                title=story.title.string,
-                teaser=story.teaser.string,
-                program_name=story.show.program.string,
-                show_date=self.show_date(story),
-                image_link=story.find('image', type="primary")["src"])
+                link=story['link'][0]['$text'],
+                title=story['title']['$text'],
+                teaser=story['teaser']['$text'],
+                program_name=self.program_name(show),
+                show_date=self.show_date(show),
+                image_link=story['image'][0]['src'])
             print podcast
+            print
             podcast.countries.add(country)
 
+    def program_name(self, show):
+        if show:
+            return show[0]['program']['$text']
 
-    def show_date(self, story):
-        if story.show.showdate:
-            return datetime(*parsedate_tz(story.show.showdate.string)[:6])
+    def show_date(self, show):
+        if show:
+            show_date = show[0]['showDate']['$text']
+            return datetime(*parsedate_tz(show_date)[:6])
