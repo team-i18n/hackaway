@@ -27,7 +27,10 @@
             <a href="www.sr.se">
                 SR
             </a>
-            by team i18n
+            by
+            <a href="https://github.com/team-i18n/hackaway">
+            team i18n
+            </a>.
         </h5>
         </div>
 
@@ -37,10 +40,9 @@
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </div>
 
-    
-        <div class="fb-like socialmedia" data-href="https://www.facebook.com/pages/PodAtlas/950527241640617?skip_nax_wizard=true&amp;ref_type=pages_you_admin" data-width="100px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true">
-        </div>
-        
+
+            <div class="fb-like socialmedia" data-href="https://www.facebook.com/pages/PodAtlas/950527241640617?skip_nax_wizard=true&amp;ref_type=pages_you_admin" data-width="100px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true">
+            </div>
         </div>
     </div>
 
@@ -49,6 +51,22 @@
 
             <div class="click">
                 <div id="placeholder_display">
+                    <p>
+                        This app is mean to give an idea of news per capita.
+                        If a country is really darkly colored that means that
+                        for every person in that country there is a lot of news
+                        producted. Ligher colored countries mean that we aren't
+                        hearing much news about these people.
+                    </p>
+                    <p>
+                        NPR podcasts were collected going back to 2012. All
+                        podcasts that meantioned the countries's name and where
+                        in the category of "News" or "World" were selected.
+                    </p>
+                    <p>
+                        Population data comes from the world bank's population
+                        API for 2014.
+                    </p>
                 </div>
                 {% for country in countries %}
                     {% include "country.html" %}
@@ -97,7 +115,7 @@
 </div>
 
         <div>
-            <h5>Built by <a href="www.twitter.com/rmeritz">@rmeritz</a>, 
+            <h5>Built by <a href="www.twitter.com/rmeritz">@rmeritz</a>,
              <a href="www.twitter.com/anhristova">
                 @ahristova</a> and
                 <a href="www.twitter.com/heidiharman">

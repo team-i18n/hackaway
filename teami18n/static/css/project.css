@@ -69,7 +69,7 @@ body {
 .click {
 	display: inline-block;
 	width: 300px;
-	height: auto;
+	height: 500px;
 	background-color: white;
 	border: 1px solid black;
 	outline: 4px solid white;
@@ -87,4 +87,12 @@ body {
 #world-map {
     display: inline-block;
     margin: 20px;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
 }
