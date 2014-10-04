@@ -59,9 +59,14 @@ h5 {
 	margin-top: 40px;
 }
 
+.inline{
+	display: inline-block;
+
+}
+
 .hover {
 	width: 150px;
-	height: auto;
+	height: 400px;
 	background-color: white;
 	text-align: center;
 	border: 1px solid black;
@@ -93,4 +98,8 @@ h5 {
 
 .countryname{
 	font-style: uppercase;
+}
+
+.article{
+	text-align: left;
 }
