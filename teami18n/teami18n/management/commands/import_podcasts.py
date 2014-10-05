@@ -3,41 +3,43 @@ from django.core.management.base import BaseCommand
 import requests
 from django_countries.data import COUNTRIES
 from email.utils import parsedate_tz
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from urllib import quote
 
 from teami18n.models import Country, Podcast
 
 
 class Command(BaseCommand):
-    help = 'Import Podcasts'
+    help = 'Import yesterdays podcasts to keep map up to date.'
 
     def handle(self, *args, **options):
         for country in Country.objects.all():
             self.populate_podcasts(country)
 
     def populate_podcasts(self, country):
-        print
         print country.code
+        yesterday = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
         country_name = self.country_name(country)
         url = ('http://api.npr.org/query?id=1001,1004'
                '&fields=title,teaser,show,image'
                '&requiredAssets=text,image,audio'
                '&dateType=story'
-               '&startDate=2012-01-01'
-               '&endDate=2013-12-31'
+               '&date=' + yesterday +
                '&searchTerm=' + country_name +
                '&sort=dateDesc'
                '&output=JSON'
                '&numResults=50'
                '&apiKey=MDE2ODkwMTczMDE0MTIwNjAxNDIxMGUxMA001')
+        # Change query to a date range to populate old data.
+        #'&startDate=2012-01-01'
+        #'&endDate=2013-12-31'
         json = requests.get(url).json()
         self.stories_to_podcasts(json, country)
 
     def stories_to_podcasts(self, json, country):
         for story in json["list"].get("story", []):
             show = story.get("show")
-            podcast, _ = Podcast.objects.get_or_create(
+            podcast, was_created = Podcast.objects.get_or_create(
                 story_id=story['id'],
                 link=story['link'][0]['$text'],
                 title=story['title']['$text'],
@@ -46,7 +48,10 @@ class Command(BaseCommand):
                 show_date=self.show_date(show),
                 image_link=self.image(story))
             print podcast
-            podcast.countries.add(country)
+            if was_created:
+                podcast.countries.add(country)
+                country.podcasts_count = country.podcasts_count + 1
+                country.save()
 
     def image(self, story):
         image = story.get('image')
